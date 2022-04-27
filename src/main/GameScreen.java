@@ -20,6 +20,9 @@ public class GameScreen extends JPanel {
         loadSprites();
         
         random = new Random();
+
+
+
     }
 
     private void loadSprites() {
@@ -47,6 +50,8 @@ public class GameScreen extends JPanel {
             }
         }
     }
+
+
 
     private int getRandomInt(){
         return random.nextInt(100);
