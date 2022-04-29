@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="27380933-1913-4ba5-b8b1-c12add70f56d" name="Changes" comment="Game loop, clean up, UPS, and FPS threading">
-      <change afterPath="$PROJECT_DIR$/src/helperMethod/LevelBuild.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/helperMethod/LoadSave.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/inputs/KeyboardListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/inputs/MyMouseListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/GameStates.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Render.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/managers/TileManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/objects/Tile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scenes/GameScene.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scenes/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scenes/Playing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scenes/SceneMethods.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scenes/Settings.java" afterDir="false" />
+    <list default="true" id="27380933-1913-4ba5-b8b1-c12add70f56d" name="Changes" comment="Clean up of methods, implemented level tiles, objects to hold game objects (tile, monsters, etc)">
+      <change afterPath="$PROJECT_DIR$/src/userInterface/MyButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputs/KeyboardListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/inputs/KeyboardListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputs/MyMouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/inputs/MyMouseListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GameScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/GameStates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GameStates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Render.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Render.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/GameScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/GameScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/Playing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/Playing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/SceneMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/SceneMethods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/Settings.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,18 +42,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;18&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/patri/IdeaProjects/Java_Tutorial_TD/res&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "jdk.selected.JAVA_MODULE": "18",
+    "last_opened_file_path": "C:/Users/patri/IdeaProjects/Java_Tutorial_TD/res",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\patri\IdeaProjects\Java_Tutorial_TD\res" />
@@ -119,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651075892348</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Clean up of methods, implemented level tiles, objects to hold game objects (tile, monsters, etc)">
+      <created>1651184496581</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1651184496581</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -137,6 +141,12 @@
     <MESSAGE value="Basic Setup" />
     <MESSAGE value="Sprites loaded into array, grid is now displaying sprites." />
     <MESSAGE value="Game loop, clean up, UPS, and FPS threading" />
-    <option name="LAST_COMMIT_MESSAGE" value="Game loop, clean up, UPS, and FPS threading" />
+    <MESSAGE value="Clean up of methods, implemented level tiles, objects to hold game objects (tile, monsters, etc)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Clean up of methods, implemented level tiles, objects to hold game objects (tile, monsters, etc)" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Java_Tutorial_TD$Game.ic" NAME="Game Coverage Results" MODIFIED="1651186378204" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.*</FILTER>
+    </SUITE>
   </component>
 </project>
