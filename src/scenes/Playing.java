@@ -3,6 +3,7 @@ package scenes;
 import helperMethod.LevelBuild;
 import main.Game;
 import managers.TileManager;
+import userInterface.BottomBar;
 import userInterface.MyButton;
 
 import java.awt.*;
@@ -13,24 +14,25 @@ public class Playing extends GameScene implements SceneMethods {
 
     private int[][] lvl;
     private TileManager tileManager;
-    private MyButton buttonMenu;
+
+    private BottomBar bottomBar;
 
 
     public Playing(Game game) {
         super(game);
 
-        initButtons();
+
         lvl = LevelBuild.getLevelData();
         tileManager = new TileManager();
+        bottomBar = new BottomBar(0,640,640,100, this);
 
         //The lvl
         //tileManager
     }
 
-    private void initButtons(){
-        buttonMenu = new MyButton("Menu", 2, 2, 100, 30);
+    public TileManager getTileManager(){
+        return tileManager;
     }
-
     @Override
     public void render(Graphics g) {
 
@@ -41,39 +43,36 @@ public class Playing extends GameScene implements SceneMethods {
             }
         }
 
-        drawButtons(g);
 
+        bottomBar.draw(g);
     }
 
-    private void drawButtons(Graphics g){
-        buttonMenu.draw(g);
-    }
+
 
     @Override
     public void mouseClicked(int x, int y) {
-        if(buttonMenu.getBounds().contains(x, y))
-            SetGameState(MENU);
-
+        if(y>=640){
+            bottomBar.mouseClicked(x,y);
+        }
     }
 
     @Override
     public void mouseMoved(int x, int y) {
-        buttonMenu.setMouseOver(false);
-        if(buttonMenu.getBounds().contains(x,y))
-            buttonMenu.setMouseOver(true);
 
+        if(y>=640){
+            bottomBar.mouseMoved(x,y);
+        }
     }
 
     @Override
     public void mousePressed(int x, int y) {
-        if(buttonMenu.getBounds().contains(x,y))
-            buttonMenu.setMousePressed(true);
-
+        if(y>=640){
+            bottomBar.mousePressed(x,y);
+        }
     }
 
     @Override
     public void mouseReleased(int x, int y) {
-        buttonMenu.resetBooleans();
-
+        bottomBar.mouseReleased(x,y);
     }
 }
